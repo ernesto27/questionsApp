@@ -42,7 +42,6 @@ Ask.user = (function($){
 			// todo
 		});
 	}
-
 	function init(){
 		validateRegister();
 		validateLogin();
