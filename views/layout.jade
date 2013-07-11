@@ -1,0 +1,26 @@
+doctype 5
+html
+	head
+		title questions
+		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css')
+		link(rel='stylesheet', href='/css/styles.css')
+	
+			
+		-if(typeof(user) !== "undefined") 
+			body(style='background:url("#{user[0].background}")')
+			
+		- else if(typeof(locals.session) !== "undefined")
+			body(style='background:url("#{session.background}")')
+		- else
+			body
+		
+						
+		block content
+
+		script(src="http://code.jquery.com/jquery-1.9.1.js")
+		script(src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js")
+		script(src="//connect.facebook.net/en_US/all.js")
+		script(src="/js/validator.js")
+		script(src="/js/main.js")
+		script(src="/js/user.js")
+

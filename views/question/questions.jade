@@ -1,0 +1,52 @@
+extends ../layout
+
+block content
+	.navbar.navbar-fixed-top
+			.navbar-inner#header
+				.container
+
+					- if (session.logged)
+						ul.nav
+						
+							li.active
+								a(href="/questions/"+session.username+"/"+session.user_id) Perfil
+							li
+								a(href="/questions/response") Preguntas
+							li
+								a(href="/home/settings") Configuracion
+					- else
+						ul.nav
+							li
+								a(href="/") Entrar
+					
+
+	.container#wrapper-body
+		.span10
+			#wraptextarea
+				#data-user
+
+					img(src="/images/avatar/#{user[0].avatar}")
+					a.username-perfil #{user[0].name}
+					p #{user[0].bio}
+					a(href="#{user[0].site}",target="_blank") #{user[0].site}
+
+
+				h5#feddback-question.alert.alert-info Tu pregunta ha sido enviada
+				form(method="post" ,action="/question/add")
+					h4 Pregunta algo
+					input(type="hidden", name="userId", value="#{user[0]._id}")
+					textarea(name="content")#question-val
+					button.btn(type="submit",data-userid="#{user[0]._id}") Preguntar
+
+			#wrapquestions
+				each question in questions
+					.single-question
+						- if (session.logged)
+							div.pull-right.delete-response(title="Eliminar",data-questionid="#{question._id	}") X
+						p.question #{question.question}
+						p #{question.response}
+						span #{question.date}
+
+			- if(questions.length)
+				button.btn#view-more(data-skip="10", data-userid="#{user[0]._id}") Ver mas
+				img(src="/img/loading.gif")#loading

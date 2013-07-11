@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+	.container
+		.span10
+			#wrap-recoverpass
+				h3 Recuperar contraseña
+
+				- if (typeof message !== undefined){
+					- if(message.length){
+						.alert= message
+					- }
+				- }
+
+				form(action="recoverpass", method="post")
+					label Email
+					input(type="text" ,name="email")
+					button.btn.btn-danger Recuperar contraseña

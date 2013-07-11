@@ -1,0 +1,178 @@
+body{
+	/* background: #C3F5F3;*/
+	/*background: url("../images/background/image1.jpg");*/
+}
+
+#wrapper-body{
+	background: white;
+	margin-top: 60px;
+	-webkit-border-radius: 22px;
+	-moz-border-radius: 22px;
+	-ms-border-radius: 22px;
+	-o-border-radius: 22px;
+	border-radius: 22px;
+}
+
+/***** HEADER *****/
+#header {
+	background: #03526B;
+	border-bottom: none;
+}
+  
+#header .nav > li > a {
+    color: white;
+    text-shadow: none; 
+}
+
+#header .nav > .active > a, #header .navbar .nav > .active > a:hover, #header .navbar .nav > .active > a:focus {
+    text-decoration: none;
+    background-color: #073E5E; 
+}
+
+/****** REGISTER-LOGIN *****/
+#login-form a{
+	display: block;
+}
+
+#wrap-recoverpass button{
+	display: block;
+}
+
+
+/****** HOME *****/
+#home-header{
+	margin-top:50px;
+	height: 110px;
+}
+
+#home-header img{
+	float: left;
+	margin-right: 15px;
+	width: 90px;
+	height: 90px;
+}
+
+#main-home textarea{
+	display: block;
+} 
+
+#design-tab ul{
+	list-style: none;
+	margin: 0;
+}
+#design-tab li{
+	float: left;
+	margin: 6px;
+}
+#design-tab li:hover{
+	cursor: pointer;
+}
+
+
+/****** QUESTIONS *****/
+#data-user{
+	height: 95px;
+	margin-bottom: 35px;
+}
+
+#data-user img{
+	float: left;
+	margin-right: 15px;
+	width: 90px;
+	height: 90px;
+}
+
+#data-user a.username-perfil{
+	font-size: 2.0em;
+	font-weight: bold;
+	color: #7C7E81;
+	padding-top: 5px;	
+}
+
+#data-user p{
+	font-style: italic;
+	font-size: 0.9em;
+	font-family: sans-serif;
+	margin-bottom: 0px;
+}
+
+#wraptextarea {
+	margin-top: 60px;
+}
+#wraptextarea textarea{
+	width: 80%;
+	display: block;
+	height: 100px;
+	resize: none;
+	-webkit-box-shadow: 0px 3px 18px #727272;
+	-moz-box-shadow: 0px 3px 18px #727272;
+	box-shadow: 0px 3px 18px #727272;
+}
+
+#wraptextarea #feddback-question{
+	width:50%;
+	display:none;
+}
+
+.single-question{
+	margin-bottom: 20px;
+	border: solid 1px #C7C6C6;
+	padding: 9px;
+}
+
+.single-question .question{
+	font-weight: bold;
+}
+
+.single-question span{
+	font-size: 0.8em;
+	color: grey;
+	display: block;
+}
+
+.single-question > .delete-response{
+	font-weight: bold;
+	font-size: 1.2em;
+}
+.single-question > .delete-response:hover{
+	cursor: pointer;
+}
+
+#view-more, #loading{
+	margin: 0 auto;
+	display: block;
+	margin-bottom: 25px;
+}
+
+#loading{
+	display: none;
+}
+
+.wrap-response{
+	display: none;
+}
+
+.wrap-response textarea{
+	width: 80%;
+	height: 74px;
+	display: block;
+	margin-top: 10px;
+}
+
+.wrap-response button{
+	margin-bottom: 15px;
+}
+
+.error{
+	color: red;
+}
+
+/***** MEDIA QUERIES *****/
+@media (max-width: 979px){
+	#wrapper-body{
+		margin-top: 20px;
+	}
+	#home-header{
+		margin-top: 0px;
+	}
+}

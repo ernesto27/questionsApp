@@ -1,0 +1,78 @@
+extends ../layout
+
+block content
+	.navbar.navbar-fixed-top
+			.navbar-inner#header
+				.container
+
+					- if (session.logged)
+						ul.nav
+						
+							li
+								a(href="/questions/"+session.username+"/"+session.user_id) Perfil
+							li
+								a(href="/questions/response") Preguntas
+							li.active
+								a(href="/home/settings") Configuracion
+					- else
+						ul.nav
+							li
+								a(href="/") Entrar
+
+
+	.container#wrapper-body
+		.span10
+			#home-header
+				img(src="/images/avatar/#{session.avatar}")
+				h3 #{session.username}
+
+			#main-home
+				- if (message.length){
+					h4.alert.alert-info= message
+				- }
+
+
+				.tabbable
+					ul.nav.nav-tabs
+						li.active
+							a(href="#perfil-tab",data-toggle="tab") Perfil
+						li
+							a(href="#design-tab",data-toggle="tab") Diseño
+
+				.tab-content
+					.tab-pane.active#perfil-tab
+						form(action="/home/update", method="post")	
+							label(for="site") Pagina web
+							input(type="text", name="site", value="#{session.site}")
+							label(for="bio") Acerca de mi
+							textarea(name="bio", value="") #{session.bio}
+							button.btn.btn-info Actualizar
+
+						p Selecciona una imagen
+						form(action="/home/uploadavatar", method="post", enctype="multipart/form-data")
+							input(type="file", name="avatar")
+							br
+							button.btn Cambiar avatar
+
+					.tab-pane#design-tab
+						h4 Seleccion un fondo
+						ul
+							li
+								img(src="/images/background/image1.jpg")
+							li
+								img(src="/images/background/image2.jpg")
+							li
+								img(src="/images/background/image3.jpg")
+							li
+								img(src="/images/background/image4.jpg")
+							li
+								img(src="/images/background/image5.jpg")
+							li
+								img(src="/images/background/image6.jpg")
+							li
+								a.btn.btn-danger sin imagen
+							
+				
+				
+				a.btn.btn-danger(href="/logout",style="margin-bottom:20px;margin-top:20px") Salir
+	

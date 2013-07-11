@@ -1,0 +1,35 @@
+extends layout
+
+block content
+	.container#wrapper-body
+		.span5
+			h2 Registro
+			a(href="/drop") Delete collection
+			- if (message.length){
+				.alert.alert-error#form-error= message
+			- }
+			form(action="/register",method="post",id="register" )
+				label username
+				input(name="username",type="text")
+				label email
+				input(name="email",type="text")
+				label password
+				input(name="password", type="password")
+				br
+				button.btn.btn-primary(type="submit") Registro
+
+		.span4#login-form
+			h2 login
+			form(action="/login",method="post",id="login" )
+				label email
+				input(name="email",type="text")
+				label password
+				input(name="password", type="password")
+				br
+				a(href="/recoverpass") Olvidaste la contraseña?
+				br
+				button.btn.btn-primary(type="submit", style="margin-bottom:10px") Ingresar
+			
+		.clearfix
+		.span3
+			

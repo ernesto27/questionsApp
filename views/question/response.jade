@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+	.navbar.navbar-fixed-top
+			.navbar-inner#header
+				.container
+
+					- if (session.logged)
+						ul.nav						
+							li
+								a(href="/questions/"+session.username+"/"+session.user_id) Perfil
+							li.active
+								a(href="/questions/response") Preguntas
+							li
+								a(href="/home/settings") Configuracion
+					- else
+						ul.nav
+							li
+								a(href="/") Entrar
+					
+
+	.container#wrapper-body
+		.span10
+			
+			#wrapquestions
+				h3 Responder
+				br
+			each question in questions
+				.single-question
+					div.pull-right.delete-response(title="Eliminar",data-questionid="#{question._id	}") X
+					p #{question.question}
+					a(href="#", style="display:block;font-size:0.9em") Responder
+					.wrap-response
+						textarea
+						button.btn(data-questionid="#{question._id}") Agregar respuesta
+					span #{question.date}

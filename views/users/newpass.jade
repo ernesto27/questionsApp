@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+	.container
+		.span10
+			#wrap-recoverpass
+				h3 Ingresa nueva contraseña
+				- if (typeof message !== undefined){
+					- if(message.length){
+						h4.alert.alert-info= message
+					- }
+				- }
+			
+				form(action="/changepassword", method="post")
+					label Nueva contraseña
+					input(type="text" ,name="pass1")
+					label Repite contraseña
+					input(type="text" ,name="pass2")
+					input(type="hidden" ,name="id",value="#{id}")
+					input(type="hidden" ,name="key",value="#{key}")
+					button.btn.btn-danger Cambiar contraseña
+					a(href="/", style="display:block;margin-top:10px") Login

@@ -1,0 +1,11 @@
+{
+ "name":"af-node-base",
+  "version":"0.0.1",
+  "dependencies":{
+      "express":"",
+      "nodemailer": "*",
+      "jade": "*",
+      "mongoose":"*",
+      "connect-flash" : "*" 
+  }
+}
